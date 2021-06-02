@@ -61,7 +61,6 @@ class Todo extends StatelessWidget {
         tileColor: Colors.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5),
-          // side: BorderSide(color: Colors.black),
         ),
       ),
     );
