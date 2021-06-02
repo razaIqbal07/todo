@@ -9,6 +9,9 @@ class CategoriesSlider extends StatelessWidget {
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [
+          SizedBox(
+            width: 10,
+          ),
           Category('Work'),
           Category('Personal'),
           Category('Personal'),
@@ -16,6 +19,9 @@ class CategoriesSlider extends StatelessWidget {
           Category('Personal'),
           Category('Personal'),
           Category('Personal'),
+          SizedBox(
+            width: 10,
+          ),
         ],
       ),
     );
