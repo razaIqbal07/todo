@@ -64,13 +64,5 @@ class Todo extends StatelessWidget {
         ),
       ),
     );
-    // Container(
-    //   width: MediaQuery.of(context).size.width,
-    //   decoration: BoxDecoration(
-    //       color: Colors.red, borderRadius: BorderRadius.circular(5)),
-    //   margin: EdgeInsets.only(bottom: 10),
-    //   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-    //   child: Text("ok"),
-    // );
   }
 }
