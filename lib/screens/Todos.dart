@@ -10,6 +10,16 @@ class Todos extends StatefulWidget {
 }
 
 class _TodosState extends State<Todos> {
+  bool fabExpanded = false;
+
+  void _handleFabClick() {
+    print('hi');
+    setState(() {
+      fabExpanded = !fabExpanded;
+    });
+    print(fabExpanded);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,10 +31,42 @@ class _TodosState extends State<Todos> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(
-          Icons.add,
-        ),
+      floatingActionButton: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          AnimatedSwitcher(
+            child: fabExpanded
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Container(
+                        child: Text('Add Category'),
+                      ),
+                      IconButton(
+                          color: Colors.pink,
+                          icon: Icon(
+                            Icons.add,
+                          ))
+                    ],
+                  )
+                : SizedBox(),
+            duration: Duration(milliseconds: 200),
+            switchInCurve: Curves.easeIn,
+          ),
+          FloatingActionButton(
+              backgroundColor: fabExpanded ? Colors.pink.shade300 : null,
+              onPressed: _handleFabClick,
+              child: AnimatedSwitcher(
+                  child: fabExpanded
+                      ? Icon(
+                          Icons.close,
+                        )
+                      : Icon(
+                          Icons.add,
+                        ),
+                  duration: Duration(milliseconds: 300)))
+        ],
       ),
       body: Container(
         decoration: new BoxDecoration(color: Colors.white70),
