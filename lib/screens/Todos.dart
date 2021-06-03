@@ -13,7 +13,6 @@ class _TodosState extends State<Todos> {
   bool fabExpanded = false;
 
   void _handleFabClick() {
-    print('hi');
     setState(() {
       fabExpanded = !fabExpanded;
     });
