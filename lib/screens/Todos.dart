@@ -16,7 +16,6 @@ class _TodosState extends State<Todos> {
     setState(() {
       fabExpanded = !fabExpanded;
     });
-    print(fabExpanded);
   }
 
   @override
@@ -36,22 +35,41 @@ class _TodosState extends State<Todos> {
         children: [
           AnimatedSwitcher(
             child: fabExpanded
-                ? Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                ? Column(
                     children: [
-                      Container(
-                        child: Text('Add Category'),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Container(
+                            child: Text('Add Todo'),
+                          ),
+                          IconButton(
+                            color: Colors.pink,
+                            icon: Icon(
+                              Icons.add,
+                            ),
+                          )
+                        ],
                       ),
-                      IconButton(
-                          color: Colors.pink,
-                          icon: Icon(
-                            Icons.add,
-                          ))
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Container(
+                            child: Text('Add Category'),
+                          ),
+                          IconButton(
+                            color: Colors.pink,
+                            icon: Icon(
+                              Icons.add,
+                            ),
+                          )
+                        ],
+                      )
                     ],
                   )
                 : SizedBox(),
             duration: Duration(milliseconds: 200),
-            switchInCurve: Curves.easeIn,
+            switchInCurve: Curves.fastOutSlowIn,
           ),
           FloatingActionButton(
               backgroundColor: fabExpanded ? Colors.pink.shade300 : null,
