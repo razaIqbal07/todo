@@ -29,6 +29,7 @@ class _TodosState extends State<Todos> {
           ),
         ),
       ),
+      drawer: Drawer(child: Container(),),
       floatingActionButton: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment: MainAxisAlignment.end,
@@ -119,7 +120,7 @@ class Todo extends StatelessWidget {
         title: Text('Tdod'),
         tileColor: Colors.white,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5),
+          borderRadius: BorderRadius.circular(15),
         ),
       ),
     );
