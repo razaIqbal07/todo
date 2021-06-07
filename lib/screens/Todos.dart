@@ -29,7 +29,9 @@ class _TodosState extends State<Todos> {
           ),
         ),
       ),
-      drawer: Drawer(child: Container(),),
+      drawer: Drawer(
+        child: Container(),
+      ),
       floatingActionButton: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment: MainAxisAlignment.end,
@@ -38,19 +40,24 @@ class _TodosState extends State<Todos> {
             child: fabExpanded
                 ? Column(
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Container(
-                            child: Text('Add Todo'),
-                          ),
-                          IconButton(
-                            color: Colors.pink,
-                            icon: Icon(
-                              Icons.add,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/addTodo');
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Container(
+                              child: Text('Add Todo'),
                             ),
-                          )
-                        ],
+                            IconButton(
+                              color: Colors.pink,
+                              icon: Icon(
+                                Icons.add,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
