@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo/services/firebase.dart';
 import 'package:todo/widgets/AppBarWidget.dart';
 
 class AddTodo extends StatefulWidget {
@@ -75,6 +76,7 @@ class _AddTodoState extends State<AddTodo> {
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState.validate()) {
+                    FirebaseServices.createTodo();
                     ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text('Processing Data')));
                   }
