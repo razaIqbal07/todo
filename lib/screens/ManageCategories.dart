@@ -9,7 +9,7 @@ class ManageCategories extends StatefulWidget {
 
 class _ManageCategoriesState extends State<ManageCategories> {
   final _formKey = GlobalKey<FormState>();
-  String dropdownValue = 'All';
+  // String dropdownValue = 'All';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,22 +38,22 @@ class _ManageCategoriesState extends State<ManageCategories> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Select Category'),
-              DropdownButtonFormField(
-                value: dropdownValue,
-                onChanged: (String newValue) {
-                  setState(() {
-                    dropdownValue = newValue;
-                  });
-                },
-                items: <String>['All', 'Work', 'Personal', 'Home']
-                    .map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-              ),
+              // Text('Select Category'),
+              // DropdownButtonFormField(
+              //   value: dropdownValue,
+              //   onChanged: (String newValue) {
+              //     setState(() {
+              //       dropdownValue = newValue;
+              //     });
+              //   },
+              //   items: <String>['All', 'Work', 'Personal', 'Home']
+              //       .map<DropdownMenuItem<String>>((String value) {
+              //     return DropdownMenuItem<String>(
+              //       value: value,
+              //       child: Text(value),
+              //     );
+              //   }).toList(),
+              // ),
               SizedBox(
                 height: 20,
               ),
