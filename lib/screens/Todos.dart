@@ -67,12 +67,12 @@ class _TodosState extends State<Todos> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Container(
-                              child: Text('Add Category'),
+                              child: Text('Manage Categories'),
                             ),
                             IconButton(
                               color: Colors.pink,
                               icon: Icon(
-                                Icons.add,
+                                Icons.settings,
                               ),
                             )
                           ],

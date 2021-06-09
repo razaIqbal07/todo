@@ -21,7 +21,7 @@ class _ManageCategoriesState extends State<ManageCategories> {
                 child: Icon(Icons.note_add_rounded, size: 20),
               ),
               TextSpan(
-                  text: " Add Todo",
+                  text: " Manage Categories",
                   style: TextStyle(color: Colors.black, fontSize: 18)),
             ],
           ),
@@ -33,58 +33,104 @@ class _ManageCategoriesState extends State<ManageCategories> {
           horizontal: 20,
           vertical: 20,
         ),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Text('Select Category'),
-              // DropdownButtonFormField(
-              //   value: dropdownValue,
-              //   onChanged: (String newValue) {
-              //     setState(() {
-              //       dropdownValue = newValue;
-              //     });
-              //   },
-              //   items: <String>['All', 'Work', 'Personal', 'Home']
-              //       .map<DropdownMenuItem<String>>((String value) {
-              //     return DropdownMenuItem<String>(
-              //       value: value,
-              //       child: Text(value),
-              //     );
-              //   }).toList(),
-              // ),
-              SizedBox(
-                height: 20,
+        child: Column(
+          children: [
+            Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Text('Select Category'),
+                  // DropdownButtonFormField(
+                  //   value: dropdownValue,
+                  //   onChanged: (String newValue) {
+                  //     setState(() {
+                  //       dropdownValue = newValue;
+                  //     });
+                  //   },
+                  //   items: <String>['All', 'Work', 'Personal', 'Home']
+                  //       .map<DropdownMenuItem<String>>((String value) {
+                  //     return DropdownMenuItem<String>(
+                  //       value: value,
+                  //       child: Text(value),
+                  //     );
+                  //   }).toList(),
+                  // ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text('Add Category'),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      hintText: 'Work..',
+                      // labelText: 'Todo',
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter a task';
+                      }
+                    },
+                    maxLines: null,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      if (_formKey.currentState.validate()) {
+                        FirebaseServices.createTodo();
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text('Processing Data')));
+                      }
+                    },
+                    child: Text('Add'),
+                  ),
+                ],
               ),
-              Text('Add Category'),
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: 'Get groceries from supermarket.',
-                  // labelText: 'Todo',
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 10),
+              child: Text(
+                'Categories',
+                style: TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 18,
                 ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter a task';
-                  }
-                },
-                maxLines: null,
               ),
-              SizedBox(
-                height: 20,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState.validate()) {
-                    FirebaseServices.createTodo();
-                    ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Processing Data')));
-                  }
-                },
-                child: Text('Add'),
-              ),
-            ],
-          ),
+            ),
+            Expanded(
+                child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: 20,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  tileColor: Colors.red,
+                  contentPadding: EdgeInsets.all(1),
+                  title: Text('Work'),
+                  // leading: Icon(Icons.add),
+                  trailing: Container(
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Icon(
+                          Icons.edit,
+                          size: 18,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Icon(
+                          Icons.delete_forever,
+                          size: 18,
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            )),
+          ],
         ),
       ),
     );
