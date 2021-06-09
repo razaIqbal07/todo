@@ -57,7 +57,7 @@ class _ManageCategoriesState extends State<ManageCategories> {
               SizedBox(
                 height: 20,
               ),
-              Text('Todo'),
+              Text('Add Category'),
               TextFormField(
                 decoration: InputDecoration(
                   hintText: 'Get groceries from supermarket.',

@@ -59,19 +59,24 @@ class _TodosState extends State<Todos> {
                           ],
                         ),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Container(
-                            child: Text('Add Category'),
-                          ),
-                          IconButton(
-                            color: Colors.pink,
-                            icon: Icon(
-                              Icons.add,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/manageCategories');
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Container(
+                              child: Text('Add Category'),
                             ),
-                          )
-                        ],
+                            IconButton(
+                              color: Colors.pink,
+                              icon: Icon(
+                                Icons.add,
+                              ),
+                            )
+                          ],
+                        ),
                       )
                     ],
                   )

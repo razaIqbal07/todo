@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:todo/screens/AddTodo.dart';
+import 'package:todo/screens/ManageCategories.dart';
 import 'package:todo/screens/Todos.dart';
 import 'package:todo/widgets/AppBarWidget.dart';
 import 'package:todo/widgets/BottomNavigationBar.dart';
@@ -17,7 +18,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
-      routes: {'/': (context) => Home(), '/addTodo': (context) => AddTodo()},
+      routes: {
+        '/': (context) => Home(),
+        '/addTodo': (context) => AddTodo(),
+        '/manageCategories': (context) => ManageCategories(),
+      },
       theme: ThemeData(
           primaryIconTheme: IconThemeData(color: Colors.black),
           primarySwatch: Colors.indigo,
