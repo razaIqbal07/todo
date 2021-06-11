@@ -14,7 +14,6 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget {
       centerTitle: true,
       title: this.title,
       backgroundColor: Colors.white,
-
       // leading: IconButton(
       //   icon: Icon(Icons.menu),
       // ),

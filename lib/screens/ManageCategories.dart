@@ -101,7 +101,7 @@ class _ManageCategoriesState extends State<ManageCategories> {
             Expanded(
                 child: ListView.builder(
               shrinkWrap: true,
-              itemCount: 20,
+              itemCount: 10,
               itemBuilder: (context, index) {
                 return ListTile(
                   tileColor: Colors.red,
